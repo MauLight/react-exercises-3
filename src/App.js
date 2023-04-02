@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import ConfirmationDialog from './components/Dialog';
+import { Fragment } from 'react';
+import LiveOrders from './components/LiveOrders';
+
+function Button({ children, backgroundColor }) {
+  return <button className='btn' style={{ backgroundColor }}>{children}</button>;
+};
+
+function Alert({ children }) {
+  return (
+    <div id='modal1' className='modal' tabindex="-1">
+      <div className='Overlay' />
+      <div className='Alert'>{children}</div>
+    </div>
+  );
+};
+
+const DeleteBtn = () => {
+  return <Button backgroundColor="red">Delete</Button>;
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header>Mau's Restaurant</header>
+      <LiveOrders />
     </div>
   );
 }
